@@ -1,14 +1,15 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding class="animated fadeIn login auth-page">
+  <div class="login-content">
+    <div padding-horizontal text-center class="animated fadeInDown">
+      <h2 ion-text class="text-primary">
+        <strong>Insilius</strong> Demo
+      </h2>
+    </div>
+    <div>
+      <button ion-button icon-start block color="blue" tappable (click)="principal()">
+        <ion-icon name="log-in"></ion-icon>
+        Iniciar
+      </button>
+    </div>
+  </div>
 </ion-content>
