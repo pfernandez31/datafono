@@ -5,11 +5,11 @@
         <strong>Insilius</strong> Demo
       </h2>
     </div>
-    <div>
-      <button ion-button icon-start block color="blue" tappable (click)="principal()">
-        <ion-icon name="log-in"></ion-icon>
-        Iniciar
-      </button>
-    </div>
   </div>
+   <ion-tabs>
+    <ion-tab [root]="tab2Root" tabTitle="Venta" tabIcon="basket"></ion-tab>
+    <ion-tab [root]="tab1Root" tabTitle="Menú Comercio" tabIcon="apps"></ion-tab>
+    
+    <ion-tab [root]="tab3Root" tabTitle="Configuracion" tabIcon="settings"></ion-tab>
+  </ion-tabs>
 </ion-content>
