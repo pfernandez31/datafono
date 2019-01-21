@@ -62,7 +62,7 @@ export class PrincipalPage {
                                                     (<any>window).sunmiInnerPrinter.lineWrap(1)
                                                       .then(function(any){
                                                         //IMPRIMIR DISENO PAPEL
-                                                        (<any>window).sunmiInnerPrinter.printString('\n--------DEBIT MASTERCARD--------\n')
+                                                        (<any>window).sunmiInnerPrinter.printString('\n--------DEBIT VISA--------\n')
                                                           .then(function(any){
                                                             (<any>window).sunmiInnerPrinter.setAlignment(0)
                                                               .then(function(any){
