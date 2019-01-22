@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { PrincipalPage } from "../pages/principal/principal";
 import { MenuPage } from "../pages/menu/menu";
 import { ConfigPage } from "../pages/config/config";
+import { EstadisticaPage } from "../pages/estadistica/estadistica";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ConfigPage } from "../pages/config/config";
     HomePage,
     PrincipalPage,
     MenuPage,
-    ConfigPage
+    ConfigPage,
+    EstadisticaPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import { ConfigPage } from "../pages/config/config";
     HomePage,
     PrincipalPage,
     MenuPage,
-    ConfigPage
+    ConfigPage,
+    EstadisticaPage
   ],
   providers: [
     StatusBar,

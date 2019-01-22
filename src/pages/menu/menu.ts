@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { EstadisticaPage } from "../estadistica/estadistica";
 
 @IonicPage()
 @Component({
@@ -10,7 +11,11 @@ export class MenuPage {
   checkout:any = {};
   simbol:string = '$';
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public nav: NavController, public navParams: NavParams) {
+  }
+
+  estadistica() {
+    this.nav.push(EstadisticaPage);
   }
 
   print(){

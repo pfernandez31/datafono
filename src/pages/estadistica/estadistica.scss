@@ -1,3 +1,10 @@
 page-estadistica {
-
+    .chart-wrapper {
+        width: 100%;
+        display: inline-block;
+        
+     }
+     canvas  {
+        height: 1500px;
+     }
 }
