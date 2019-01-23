@@ -133,4 +133,98 @@ export class MenuPage {
       })
   }
 
+
+  printCierre(){
+    let monto:string = this.checkout.amount;
+    let moneda:string = this.simbol;
+    let cadena = parseInt(monto).toFixed(2);
+    
+    (<any>window).sunmiInnerPrinter.printerInit() //INICIALIZAR PRINTER
+      .then(function(any){
+        (<any>window).sunmiInnerPrinter.setAlignment(1)
+          .then(function(any){
+             //SALTO LINEA
+            (<any>window).sunmiInnerPrinter.lineWrap(1)
+                       .then(function(any){
+                        (<any>window).sunmiInnerPrinter.setAlignment(1)
+                          .then(function(any){
+                            //IMPRIMIR LETRAS TERMINAL
+                            (<any>window).sunmiInnerPrinter.printString('\nCIERRE')
+                              .then(function(any){
+                                        //IMPRIMIR FECHA
+                                       (<any>window).sunmiInnerPrinter.printString('\nRef..07636539\t ENE 22,19 - 09:58')
+                                         .then(function(any){
+                                           (<any>window).sunmiInnerPrinter.lineWrap(1)
+                                             .then(function(any){
+                                                //IMPRIMIR VENTA
+                                                (<any>window).sunmiInnerPrinter.printTextWithFont('\nCIERRE     \t'+moneda+''+5000,null,32)
+                                                  .then(function(any){
+                                                    (<any>window).sunmiInnerPrinter.lineWrap(1)
+                                                      .then(function(any){
+                                                        //IMPRIMIR DISENO PAPEL
+                                                        (<any>window).sunmiInnerPrinter.printString('\n--------DEBIT VISA--------\n')
+                                                          .then(function(any){
+                                                            (<any>window).sunmiInnerPrinter.setAlignment(0)
+                                                              .then(function(any){
+                                                                (<any>window).sunmiInnerPrinter.printString('\nCIERRE\n')
+                                                                   .then(function(any){
+                                                                      (<any>window).sunmiInnerPrinter.lineWrap(3)
+                                                                        .then(function(any){
+
+                                                                        })
+                                                                        .catch(function(err){ //END CATCH
+                                                                          console.log(err);
+                                                                        })
+                                                                    })
+                                                                    .catch(function(err){ //END CATCH
+                                                                      console.log(err);
+                                                                    })
+                                                              })
+                                                              .catch(function(err){ //END CATCH
+                                                                console.log(err);
+                                                              })
+                                                          })
+                                                          .catch(function(err){ //END CATCH
+                                                            console.log(err);
+                                                          })
+                                                      })
+                                                      .catch(function(err){ //END CATCH
+                                                        console.log(err);
+                                                      })
+                                                  })
+                                                  .catch(function(err){ //END CATCH
+                                                    console.log(err);
+                                                  })
+                                              })
+                                              .catch(function(err){ //END CATCH
+                                                console.log(err);
+                                              })
+                                        })
+                                        .catch(function(err){ //END CATCH
+                                          console.log(err);
+                                        })
+                                    })
+                                    .catch(function(err){ //END CATCH
+                                      console.log(err);
+                                    })
+                              })
+                              .catch(function(err){ //END CATCH  TERMINAL ID
+                                console.log(err);
+                              })
+                          })
+                          .catch(function(err){ //END CATCH LINEWRAP
+                            console.log(err);
+                          })
+                      })
+                      .catch(function(err){ //END CATCH LOGOTIPO
+                        console.log(err);
+                      })
+                  })
+                  .catch(function(err){ //END CATCH ALIGNMENT
+                    console.log(err);
+                  })
+              
+
+}
+
 }

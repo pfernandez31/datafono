@@ -1,12 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Chart } from 'chart.js';
-/**
- * Generated class for the EstadisticaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -14,47 +8,36 @@ import { Chart } from 'chart.js';
   templateUrl: 'estadistica.html',
 })
 export class EstadisticaPage {
-  @ViewChild('pieChart') pieChart;
+  @ViewChild('lineChart') lineChart;
+  @ViewChild('barChart') barChart;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
   public technologies: any = {
     "technologies" : [
                        {
-                          'technology' : 'Mobile: Ionic/Angular',
+                          'technology' : 'Contado',
                           'time'       : 50,
                           'color'      : 'rgba(206, 61, 95, 0.5)',
                           'hover'      : 'rgba(199, 108, 129, 0.5)'
                        },
                        {
-                          'technology' : 'Front-end: Sass/CSS',
+                          'technology' : 'Credito',
                           'time'       : 15,
                           'color'      : 'rgba(83, 131, 185, 0.5)',
                           'hover'      : 'rgba(122, 160, 202, 0.5)'
                        },
                        {
-                          'technology' : 'Server: PHP/MySQL',
+                          'technology' : 'Tarjeta',
                           'time'       : 10,
                           'color'      : 'rgba(198, 147, 194, 0.5)',
                           'hover'      : 'rgba(200, 166, 197, 0.5)'
                        },
                        {
-                          'technology' : 'Code Documentation',
+                          'technology' : 'Otros',
                           'time'       : 5,
                           'color'      : 'rgba(54, 116, 152, 0.5)',
                           'hover'      : 'rgba(103, 139, 160, 0.5)'
-                       },
-                       {
-                          'technology' : 'Knowledge: Blogging',
-                          'time'       : 10,
-                          'color'      : 'rgba(152, 54, 145, 0.5)',
-                          'hover'      : 'rgba(152, 89, 149, 0.5)',
-                       },
-                       {
-                          'technology' : 'SEO/Online Marketing',
-                          'time'       : 10,
-                          'color'      : 'rgba(192, 192, 192, 0.5)',
-                          'hover'      : 'rgba(220, 220, 220, 0.5)'
                        }
    ]
 };
@@ -64,12 +47,14 @@ export class EstadisticaPage {
   public chartColours              : any    = [];
   public chartHoverColours         : any    = [];
   public chartLoading              : any;
+  public lineChartEl               : any;
+  public barChartEl                : any;
 
 
   ionViewDidLoad()
   {
   this.defineChartData();
-  this.createPieChart();
+  this.createBarChart();
   }
 
   defineChartData() : void
@@ -78,7 +63,7 @@ export class EstadisticaPage {
 
   for(k in this.technologies.technologies)
   {
-    var tech  =      this.technologies.technologies[k];
+    var tech = this.technologies.technologies[k];
 
     this.chartLabels.push(tech.technology);
     this.chartValues.push(tech.time);
@@ -86,18 +71,17 @@ export class EstadisticaPage {
     this.chartHoverColours.push(tech.hover);
   }
   }
-  createPieChart()
+  createBarChart()
 {
-
-   this.pieChartEl 				= 	new Chart(this.pieChart.nativeElement,
+   this.barChartEl = new Chart(this.barChart.nativeElement,
    {
-      type: 'pie',
+      type: 'bar',
       data: {
          labels: this.chartLabels,
          datasets: [{
-            label                 : 'Daily Technology usage',
+            label                 : 'ventas',
             data                  : this.chartValues,
-            duration              : 2000,
+            duration              : 1000,
             easing                : 'easeInQuart',
             backgroundColor       : this.chartColours,
             hoverBackgroundColor  : this.chartHoverColours
@@ -105,23 +89,27 @@ export class EstadisticaPage {
       },
       options : {
          maintainAspectRatio: false,
-         layout: {
-            padding: {
-               left     : 50,
-               right    : 0,
-               top      : 0,
-               bottom   : 0
-            }
+         legend         : {
+            display     : true,
+            boxWidth    : 40,
+            fontSize    : 10,
+            padding     : 0
          },
-         animation: {
-            duration : 5000
+         scales: {
+            yAxes: [{
+               ticks: {
+                  beginAtZero:true,
+                  stepSize:3 ,
+                  max : 50
+               }
+            }],
+            xAxes: [{
+               ticks: {
+                  autoSkip: false
+               }
+            }]
          }
       }
    });
-
-   this.chartLoading = this.pieChartEl.generateLegend();
 }
-  
-
-
 }
