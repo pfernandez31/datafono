@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+
 /**
  * Generated class for the ConfigPage page.
  *
@@ -21,5 +22,6 @@ export class ConfigPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ConfigPage');
   }
+
 
 }
